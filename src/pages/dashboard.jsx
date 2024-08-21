@@ -1,20 +1,27 @@
-import React from "react";
+import React, { lazy } from "react";
 import Header from "../components/header";
 import Navbar from "../components/navbar";
 import { useExpenses } from "../context/expensecontext";
 import { useBudget } from "../context/budgetcontext";
-import BudgetExpensesChart from "../components/budgetexpenseschart"; // Import the chart component
+import LoadingSpinner from "../components/loadingspinner"; // Import the LoadingSpinner component
+import DelayedSuspense from "../components/delayedsuspense"; // Import the DelayedSuspense component
+
+// Lazy load the BudgetExpensesChart component
+const BudgetExpensesChart = lazy(() => {
+  console.log("Attempting to load BudgetExpensesChart");
+  return import("../components/budgetexpenseschart");
+});
 
 function Dashboard() {
   const { expenses } = useExpenses();
-  const { budget } = useBudget(); // Use budget context
+  const { budget } = useBudget();
 
   // Calculate totals for expenses
   const totalExpenses = expenses.reduce(
     (total, expense) => total + parseFloat(expense.amount || 0),
     0
   );
-  const balance = budget - totalExpenses; // Calculate balance based on updated budget
+  const balance = budget - totalExpenses;
 
   return (
     <div className="bg-black text-white w-full h-screen flex flex-col">
@@ -76,11 +83,12 @@ function Dashboard() {
                 </table>
               </div>
             </div>
-            <BudgetExpensesChart
-              budget={budget}
-              totalExpenses={totalExpenses}
-            />{" "}
-            {/* Add the chart here */}
+            <DelayedSuspense delay={1000} fallback={<LoadingSpinner />}>
+              <BudgetExpensesChart
+                budget={budget}
+                totalExpenses={totalExpenses}
+              />
+            </DelayedSuspense>
           </div>
         </main>
       </div>
