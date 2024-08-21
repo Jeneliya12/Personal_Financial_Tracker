@@ -3,9 +3,12 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/dashboard";
 import AddExpense from "./pages/addExpense";
 import AddBudget from "./pages/addbudget";
+import AddSaving from "./pages/addsaving";
 import ViewSpending from "./pages/viewspending";
+import { SavingsProvider } from "./context/savingscontext";
 import { ExpenseProvider } from "./context/expensecontext";
 import { BudgetProvider } from "./context/budgetcontext";
+import { IncomeProvider } from "./context/incomecontext"; // Import IncomeProvider
 import ErrorBoundary from "./components/errorboundary"; // Ensure this path is correct
 
 function App() {
@@ -14,12 +17,17 @@ function App() {
       <ErrorBoundary>
         <BudgetProvider>
           <ExpenseProvider>
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/add-expense" element={<AddExpense />} />
-              <Route path="/update-budget" element={<AddBudget />} />
-              <Route path="/view-spending" element={<ViewSpending />} />
-            </Routes>
+            <IncomeProvider>
+              <SavingsProvider>
+                <Routes>
+                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/add-expense" element={<AddExpense />} />
+                  <Route path="/update-budget" element={<AddBudget />} />
+                  <Route path="/add-saving" element={<AddSaving />} />
+                  <Route path="/view-spending" element={<ViewSpending />} />
+                </Routes>
+              </SavingsProvider>
+            </IncomeProvider>
           </ExpenseProvider>
         </BudgetProvider>
       </ErrorBoundary>
