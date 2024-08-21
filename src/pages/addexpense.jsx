@@ -1,16 +1,15 @@
-// src/components/AddExpense.js
 import React, { useState } from "react";
-import Header from "./header";
-import Navbar from "./navbar";
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import { useExpenses } from "../context/ExpenseContext";
 
 function AddExpense() {
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [category, setCategory] = useState("");
-  const [submittedData, setSubmittedData] = useState(null);
+  const { addExpense } = useExpenses();
 
-  // Define some predefined categories
   const predefinedCategories = [
     "Food",
     "Transportation",
@@ -22,10 +21,14 @@ function AddExpense() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle adding expense logic here
-    const expenseData = { amount, description, date, category };
-    setSubmittedData(expenseData); // Update the state to display data
-    handleReset(); // Optionally reset the form fields
+    const expenseData = {
+      amount: parseFloat(amount),
+      description,
+      date,
+      category,
+    };
+    addExpense(expenseData);
+    handleReset();
   };
 
   const handleReset = () => {
@@ -38,12 +41,8 @@ function AddExpense() {
   return (
     <div className="bg-black text-white w-full h-screen flex flex-col">
       <Header />
-
       <div className="flex flex-1">
-        {/* Left Column: Navigation */}
         <Navbar />
-
-        {/* Right Column: Main Content */}
         <main className="flex-1 p-6 bg-black">
           <div className="bg-gray-800 p-8 rounded-lg max-w-md mx-auto mt-10">
             <h2 className="text-3xl font-semibold mb-6">Add Expense</h2>
@@ -134,29 +133,6 @@ function AddExpense() {
               </div>
             </form>
           </div>
-
-          {/* Display Submitted Data */}
-          {submittedData && (
-            <div className="bg-gray-800 p-6 rounded-lg max-w-md mx-auto mt-10">
-              <h2 className="text-3xl font-semibold mb-4">
-                Entered Expense Data
-              </h2>
-              <ul>
-                <li>
-                  <strong>Amount:</strong> ${submittedData.amount}
-                </li>
-                <li>
-                  <strong>Description:</strong> {submittedData.description}
-                </li>
-                <li>
-                  <strong>Date:</strong> {submittedData.date}
-                </li>
-                <li>
-                  <strong>Category:</strong> {submittedData.category}
-                </li>
-              </ul>
-            </div>
-          )}
         </main>
       </div>
     </div>

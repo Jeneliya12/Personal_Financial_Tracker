@@ -1,12 +1,15 @@
-// src/components/Navbar.js
 import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <nav className="bg-gray-800 border-r border-gray-600 p-6 w-64">
-      <h2 className="text-xl font-bold mb-6">Home</h2>
       <ul className="space-y-4">
+        <li>
+          <Link to="/" className="block text-blue-400 hover:underline">
+            Home
+          </Link>
+        </li>
         <li>
           <Link
             to="/add-expense"
