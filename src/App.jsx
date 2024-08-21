@@ -6,7 +6,7 @@ import AddBudget from "./pages/addbudget";
 import ViewSpending from "./pages/viewspending";
 import { ExpenseProvider } from "./context/expensecontext";
 import { BudgetProvider } from "./context/budgetcontext";
-import ErrorBoundary from "./components/errorboundary"; // Correct path and default import
+import ErrorBoundary from "./components/errorboundary"; // Ensure this path is correct
 
 function App() {
   return (
