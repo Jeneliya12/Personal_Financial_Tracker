@@ -28,7 +28,7 @@ function Navbar() {
         </li>
         <li>
           <Link
-            to="/view-categories"
+            to="/view-spending"
             className="block text-blue-400 hover:underline"
           >
             View Spending in Categories

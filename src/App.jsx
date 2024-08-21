@@ -2,21 +2,24 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/dashboard";
 import AddExpense from "./pages/addExpense";
+import AddBudget from "./pages/addbudget";
+import ViewSpending from "./pages/viewspending";
 import { ExpenseProvider } from "./context/expensecontext";
+import { BudgetProvider } from "./context/budgetcontext";
 
 function App() {
   return (
     <Router>
-      <ExpenseProvider>
-        <div className="flex h-screen">
-          <div className="flex-1">
-            <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/add-expense" element={<AddExpense />} />
-            </Routes>
-          </div>
-        </div>
-      </ExpenseProvider>
+      <BudgetProvider>
+        <ExpenseProvider>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/add-expense" element={<AddExpense />} />
+            <Route path="/update-budget" element={<AddBudget />} />
+            <Route path="/view-spending" element={<ViewSpending />} />
+          </Routes>
+        </ExpenseProvider>
+      </BudgetProvider>
     </Router>
   );
 }

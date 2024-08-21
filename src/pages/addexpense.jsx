@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Header from "../components/Header";
-import Navbar from "../components/Navbar";
-import { useExpenses } from "../context/ExpenseContext";
+import { useNavigate } from "react-router-dom";
+import Header from "../components/header";
+import Navbar from "../components/navbar";
+import { useExpenses } from "../context/expensecontext";
 
 function AddExpense() {
   const [amount, setAmount] = useState("");
@@ -9,6 +10,7 @@ function AddExpense() {
   const [date, setDate] = useState("");
   const [category, setCategory] = useState("");
   const { addExpense } = useExpenses();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const predefinedCategories = [
     "Food",
@@ -27,8 +29,15 @@ function AddExpense() {
       date,
       category,
     };
-    addExpense(expenseData);
-    handleReset();
+
+    try {
+      addExpense(expenseData);
+      console.log("Expense added successfully.");
+      handleReset();
+      navigate("/"); // Redirect to the Dashboard ("/" route)
+    } catch (error) {
+      console.error("Error adding expense:", error);
+    }
   };
 
   const handleReset = () => {
