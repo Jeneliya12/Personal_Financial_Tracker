@@ -14,7 +14,6 @@ Personal Financial Tracker is a web application designed to help users manage th
    - [Custom Hooks](#custom-hooks)
    - [Contexts](#contexts)
 6. [Contributing](#contributing)
-7. [License](#license)
 
 ## Features
 
