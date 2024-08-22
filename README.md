@@ -36,7 +36,9 @@ To get started with the project, follow these steps:
 
 3. **npm install**
 
-4. **npm start**
+4. **npm run dev**
+
+   **Note**: Install the tailwind from the official website:[tailwind](https://tailwindcss.com/docs/guides/create-react-app)
 
 ## Usuage
 
@@ -59,28 +61,28 @@ Once the application is running, you can use the following features:
 Here are some screenshots of the project in action:
 
 Dashboard
-![Dashboard Screenshot](assets/images/dashboardoverview.png)
+![Dashboard Screenshot](public/assets/images/dashboardoverview.png)
 
 - Overview of financial status including income,expense,balance,savings and a bar graph showing the comparison.
 
 Add Expenses
-![Expenses Screenshot](assets/images/addexpense.png)
+![Expenses Screenshot](public/assets/images/addexpense.png)
 Page for adding new expenses.
 
 Update Budget
-![Budget Screenshot](assets/images/addincome.png)
+![Budget Screenshot](public/assets/images/addincome.png)
 Page for setting or updating the budget.
 
 Add Saving
-![Budget Screenshot](assets/images/addsaving.png)
+![Budget Screenshot](public/images/addsaving.png)
 Page for adding or adjusting savings goals.
 
 View Spending
-![Budget Screenshot](assets/images/category.png)
+![Budget Screenshot](public/images/category.png)
 Page for viewing spending in various categories.
 
 Transaction History
-![Transaction Screenshot](assets/images/transactionhistory.png)
+![Transaction Screenshot](public/images/transactionhistory.png)
 List of all transactions with details.
 
 ## API Documentation
