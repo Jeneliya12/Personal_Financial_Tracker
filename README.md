@@ -9,11 +9,12 @@ Personal Financial Tracker is a web application designed to help users manage th
 1. [Features](#features)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [API Documentation](#api-documentation)
+4. [Screenshots] (#screenshots)
+5. [API Documentation](#api-documentation)
    - [Custom Hooks](#custom-hooks)
    - [Contexts](#contexts)
-5. [Contributing](#contributing)
-6. [License](#license)
+6. [Contributing](#contributing)
+7. [License](#license)
 
 ## Features
 
@@ -53,6 +54,35 @@ Once the application is running, you can use the following features:
 
 - Transaction History: View the complete list of transactions on the "Transaction History" page, including details of each expense and income.
 
+## Screenshots
+
+Here are some screenshots of the project in action:
+
+Dashboard
+![Dashboard Screenshot](assets/images/dashboardoverview.png)
+
+- Overview of financial status including income,expense,balance,savings and a bar graph showing the comparison.
+
+Add Expenses
+![Expenses Screenshot](assets/images/addexpense.png)
+Page for adding new expenses.
+
+Update Budget
+![Budget Screenshot](assets/images/addincome.png)
+Page for setting or updating the budget.
+
+Add Saving
+![Budget Screenshot](assets/images/addsaving.png)
+Page for adding or adjusting savings goals.
+
+View Spending
+![Budget Screenshot](assets/images/category.png)
+Page for viewing spending in various categories.
+
+Transaction History
+![Transaction Screenshot](assets/images/transactionhistory.png)
+List of all transactions with details.
+
 ## API Documentation
 
 **Custom Hooks**
@@ -64,19 +94,24 @@ useFinancialData()
 **Contexts**
 
 Budget Context
-**BudgetProvider**: Provides context for managing and accessing the budget.
+
+- BudgetProvider: Provides context for managing and accessing the budget.
 
 Function
-**updateBudget(newBudget)**: Updates the budget value with newBudget
+
+- updateBudget(newBudget): Updates the budget value with newBudget
 
 Express Context
-**Expense Provider**: Provides context for managing and accessing expenses
+
+- Expense Provider: Provides context for managing and accessing expenses
 
 Function
-**addExpense(expense)**: Adds a new expense to the list of expenses
+
+- addExpense(expense): Adds a new expense to the list of expenses
 
 Savings Context
-**SavingsProvider**: Provides context for managing and accessing savings goals.
+
+- SavingsProvider: Provides context for managing and accessing savings goals.
 
 Function
 **updateSavingsGoal(newGoal)**: Updates the savings goal with newGoal.
