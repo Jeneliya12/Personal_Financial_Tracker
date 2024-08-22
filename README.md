@@ -29,7 +29,7 @@ Personal Financial Tracker is a web application designed to help users manage th
 To get started with the project, follow these steps:
 
 1. **Clone the Repository**
-   git clone https://github.com/your-username/personal-financial-tracker.git
+   git clone https://github.com/Jeneliya12/Personal_Financial_Tracker.git
 
 2. **Navigate to the Project Directory**
    cd personal-financial-tracker
@@ -81,7 +81,7 @@ Add Saving
 - Page for adding or adjusting savings goals.
 
 View Spending
-![Budget Screenshot](public/assets/images/category.png)gi
+![Budget Screenshot](public/assets/images/category.png)
 
 - Page for viewing spending in various categories.
 
