@@ -9,7 +9,7 @@ Personal Financial Tracker is a web application designed to help users manage th
 1. [Features](#features)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Screenshots] (#screenshots)
+4. [Screenshots](#screenshots)
 5. [API Documentation](#api-documentation)
    - [Custom Hooks](#custom-hooks)
    - [Contexts](#contexts)
@@ -67,23 +67,28 @@ Dashboard
 
 Add Expenses
 ![Expenses Screenshot](public/assets/images/addexpense.png)
-Page for adding new expenses.
+
+- Page for adding new expenses.
 
 Update Budget
 ![Budget Screenshot](public/assets/images/addincome.png)
-Page for setting or updating the budget.
+
+- Page for setting or updating the budget.
 
 Add Saving
 ![Budget Screenshot](public/assets/images/addsaving.png)
-Page for adding or adjusting savings goals.
+
+- Page for adding or adjusting savings goals.
 
 View Spending
 ![Budget Screenshot](public/assets/images/category.png)gi
-Page for viewing spending in various categories.
+
+- Page for viewing spending in various categories.
 
 Transaction History
 ![Transaction Screenshot](public/assets/images/transactionhistory.png)
-List of all transactions with details.
+
+- List of all transactions with details.
 
 ## API Documentation
 
