@@ -57,28 +57,29 @@ Once the application is running, you can use the following features:
 
 **Custom Hooks**
 
-- useFinancialData()
+useFinancialData()
+
 - Description: Custom hook for managing and calculating financial data, such as budget, expenses, income, balance, and savings.
 
 **Contexts**
 
-- Budget Context
-  **BudgetProvider**: Provides context for managing and accessing the budget.
+Budget Context
+**BudgetProvider**: Provides context for managing and accessing the budget.
 
-- Function
-  **updateBudget(newBudget)**: Updates the budget value with newBudget
+Function
+**updateBudget(newBudget)**: Updates the budget value with newBudget
 
-- Express Context
-  **Expense Provider**: Provides context for managing and accessing expenses
+Express Context
+**Expense Provider**: Provides context for managing and accessing expenses
 
-- Function
-  **addExpense(expense)**: Adds a new expense to the list of expenses
+Function
+**addExpense(expense)**: Adds a new expense to the list of expenses
 
-- Savings Context
-  **SavingsProvider**: Provides context for managing and accessing savings goals.
+Savings Context
+**SavingsProvider**: Provides context for managing and accessing savings goals.
 
-- Function
-  **updateSavingsGoal(newGoal)**: Updates the savings goal with newGoal.
+Function
+**updateSavingsGoal(newGoal)**: Updates the savings goal with newGoal.
 
 ## Contributing
 
