@@ -74,15 +74,15 @@ Update Budget
 Page for setting or updating the budget.
 
 Add Saving
-![Budget Screenshot](public/images/addsaving.png)
+![Budget Screenshot](public/assets/images/addsaving.png)
 Page for adding or adjusting savings goals.
 
 View Spending
-![Budget Screenshot](public/images/category.png)
+![Budget Screenshot](public/assets/images/category.png)gi
 Page for viewing spending in various categories.
 
 Transaction History
-![Transaction Screenshot](public/images/transactionhistory.png)
+![Transaction Screenshot](public/assets/images/transactionhistory.png)
 List of all transactions with details.
 
 ## API Documentation
