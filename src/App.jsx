@@ -8,8 +8,8 @@ import ViewSpending from "./pages/viewspending";
 import { SavingsProvider } from "./context/savingscontext";
 import { ExpenseProvider } from "./context/expensecontext";
 import { BudgetProvider } from "./context/budgetcontext";
-import { IncomeProvider } from "./context/incomecontext"; // Import IncomeProvider
-import ErrorBoundary from "./components/errorboundary"; // Ensure this path is correct
+import { IncomeProvider } from "./context/incomecontext";
+import ErrorBoundary from "./components/error/errorboundary";
 
 function App() {
   return (

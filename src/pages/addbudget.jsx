@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/header";
-import Navbar from "../components/navbar";
+import Header from "../components/header/header";
+import Navbar from "../components/header/navbar";
 import { useBudget } from "../context/budgetcontext";
 import { useIncome } from "../context/incomecontext";
 
@@ -14,7 +14,6 @@ function AddBudget() {
   const [incomeSource, setIncomeSource] = useState("");
   const navigate = useNavigate();
 
-  // Handler for updating the budget
   const handleBudgetSubmit = (event) => {
     event.preventDefault();
     if (newBudget) {
@@ -24,7 +23,6 @@ function AddBudget() {
     navigate("/");
   };
 
-  // Handler for adding income
   const handleIncomeSubmit = async (event) => {
     event.preventDefault();
     if (label && amount && incomeSource) {
@@ -43,12 +41,10 @@ function AddBudget() {
     }
   };
 
-  // Function to reset budget form fields
   const handleBudgetReset = () => {
     setNewBudget("");
   };
 
-  // Function to reset income form fields
   const handleIncomeReset = () => {
     setLabel("");
     setAmount("");
@@ -62,7 +58,6 @@ function AddBudget() {
         <Navbar />
         <main className="flex-1 p-6 bg-black">
           <div className="flex flex-col md:flex-row gap-8 mx-auto max-w-4xl">
-            {/* Budget Form */}
             <div className="bg-gray-800 p-8 rounded-lg flex-1">
               <h2 className="text-3xl font-semibold mb-6">
                 Update Your Budget
@@ -102,7 +97,6 @@ function AddBudget() {
               </form>
             </div>
 
-            {/* Income Form */}
             <div className="bg-gray-800 p-8 rounded-lg flex-1">
               <h2 className="text-3xl font-semibold mb-6">Add Income Source</h2>
               <form onSubmit={handleIncomeSubmit} className="space-y-6">

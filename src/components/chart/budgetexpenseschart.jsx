@@ -21,13 +21,13 @@ ChartJS.register(
 
 const BudgetExpensesChart = ({ budget, totalExpenses, savings }) => {
   const data = {
-    labels: ["Budget", "Expenses", "Savings"], // Labels for the chart
+    labels: ["Budget", "Expenses", "Savings"],
     datasets: [
       {
         label: "Amount",
-        data: [budget, totalExpenses, savings], // Data points for the chart
-        backgroundColor: ["#4caf50", "#f44336", "#2196f3"], // Colors for each dataset entry
-        borderColor: ["#388e3c", "#c62828", "#1976d2"], // Border colors for each dataset entry
+        data: [budget, totalExpenses, savings],
+        backgroundColor: ["#4caf50", "#f44336", "#2196f3"],
+        borderColor: ["#388e3c", "#c62828", "#1976d2"],
         borderWidth: 1,
       },
     ],
@@ -35,18 +35,30 @@ const BudgetExpensesChart = ({ budget, totalExpenses, savings }) => {
 
   const options = {
     responsive: true,
-    maintainAspectRatio: false, // Ensure chart resizes properly
+    maintainAspectRatio: true,
     plugins: {
       legend: {
+        display: true,
         position: "top",
         labels: {
-          color: "#ffffff", // Set the legend text color to white
+          color: "#ffffff",
+          usePointStyle: true, // Use point style for the legend
+          pointStyle: "rectRounded", // Rounded rectangle style
+          generateLabels: (chart) => {
+            const { data } = chart;
+            return data.labels.map((label, index) => ({
+              text: label,
+              fillStyle: data.datasets[0].backgroundColor[index],
+              strokeStyle: data.datasets[0].borderColor[index],
+              lineWidth: 2,
+              hidden: false,
+            }));
+          },
         },
       },
       tooltip: {
         callbacks: {
           label: function (tooltipItem) {
-            // Customize tooltip label
             return `${tooltipItem.label}: $${tooltipItem.raw.toLocaleString()}`;
           },
         },
@@ -57,26 +69,25 @@ const BudgetExpensesChart = ({ budget, totalExpenses, savings }) => {
         beginAtZero: true,
         ticks: {
           callback: function (value) {
-            // Format y-axis ticks
             return `$${value.toLocaleString()}`;
           },
-          color: "#ffffff", // Set y-axis tick color to white
+          color: "#ffffff",
         },
       },
       x: {
         ticks: {
-          color: "#ffffff", // Set x-axis tick color to white
+          color: "#ffffff",
         },
       },
     },
   };
 
   return (
-    <div className="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg w-full h-full max-h-[500px] overflow-hidden">
-      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 text-white text-center">
+    <div className="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg w-full max-w-full h-auto">
+      <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-semibold mb-4 text-white text-center">
         Budget vs Expenses vs Savings
       </h2>
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px]">
         <Bar data={data} options={options} />
       </div>
     </div>

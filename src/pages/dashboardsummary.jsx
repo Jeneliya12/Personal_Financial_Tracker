@@ -1,5 +1,3 @@
-import React from "react";
-
 const DashboardSummary = ({
   balance,
   getDisplayValue,
@@ -7,13 +5,15 @@ const DashboardSummary = ({
   savings,
   savingsPercentage,
   warning,
+  savingsGoal = 0,
+  LOW_SAVINGS_THRESHOLD = 100,
 }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
       <div className="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg flex flex-col items-center h-64">
         <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-4 flex items-center">
           <img
-            src="/income.jpg"
+            src="/assets/images/income.jpg"
             alt="Income/Budget"
             className="h-16 w-16 sm:h-20 sm:w-20 rounded-lg mr-2"
           />
@@ -26,7 +26,7 @@ const DashboardSummary = ({
       <div className="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg flex flex-col items-center h-64">
         <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-4 flex items-center">
           <img
-            src="/expense.jpg"
+            src="/assets/images/expense.jpg"
             alt="Expenses"
             className="h-16 w-16 sm:h-20 sm:w-20 rounded-lg mr-2"
           />
@@ -39,7 +39,7 @@ const DashboardSummary = ({
       <div className="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg flex flex-col items-center h-64">
         <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-4 flex items-center">
           <img
-            src="/saving.jpg"
+            src="/assets/images/saving.jpg"
             alt="Savings"
             className="h-16 w-16 sm:h-20 sm:w-20 rounded-lg mr-2"
           />

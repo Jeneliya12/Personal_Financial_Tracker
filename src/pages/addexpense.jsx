@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/header";
-import Navbar from "../components/navbar";
+import Header from "../components/header/header";
+import Navbar from "../components/header/navbar";
 import { useExpenses } from "../context/expensecontext";
 
 function AddExpense() {
@@ -10,7 +10,7 @@ function AddExpense() {
   const [date, setDate] = useState("");
   const [category, setCategory] = useState("");
   const { addExpense } = useExpenses();
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const predefinedCategories = [
     "Food",
@@ -34,7 +34,7 @@ function AddExpense() {
       addExpense(expenseData);
       console.log("Expense added successfully.");
       handleReset();
-      navigate("/"); // Redirect to the Dashboard ("/" route)
+      navigate("/");
     } catch (error) {
       console.error("Error adding expense:", error);
     }
@@ -48,13 +48,15 @@ function AddExpense() {
   };
 
   return (
-    <div className="bg-black text-white w-full h-screen flex flex-col">
+    <div className="bg-black text-white min-h-screen flex flex-col">
       <Header />
       <div className="flex flex-1">
         <Navbar />
-        <main className="flex-1 p-6 bg-black">
-          <div className="bg-gray-800 p-8 rounded-lg max-w-md mx-auto mt-10">
-            <h2 className="text-3xl font-semibold mb-6">Add Expense</h2>
+        <main className="flex-1 p-4 md:p-6 lg:p-8 bg-black">
+          <div className="bg-gray-800 p-6 md:p-8 lg:p-10 rounded-lg max-w-md mx-auto mt-6 md:mt-10">
+            <h2 className="text-2xl md:text-3xl font-semibold mb-6">
+              Add Expense
+            </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
@@ -125,17 +127,17 @@ function AddExpense() {
                   ))}
                 </select>
               </div>
-              <div className="flex justify-end gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 sm:justify-end">
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-gray-600"
+                  className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
                 >
                   Reset
                 </button>
                 <button
                   type="submit"
-                  className="bg-red-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                  className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
                 >
                   Add Expense
                 </button>

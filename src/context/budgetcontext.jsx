@@ -3,7 +3,7 @@ import React, { createContext, useState, useContext } from "react";
 const BudgetContext = createContext();
 
 export function BudgetProvider({ children }) {
-  const [budget, setBudget] = useState([]); // Default budget
+  const [budget, setBudget] = useState([]);
 
   const updateBudget = (newBudget) => {
     setBudget(newBudget);

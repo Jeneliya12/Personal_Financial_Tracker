@@ -1,5 +1,3 @@
-import React from "react";
-
 const TransactionHistory = ({ transactions }) => {
   return (
     <div className="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg relative">
@@ -20,7 +18,7 @@ const TransactionHistory = ({ transactions }) => {
                 <td colSpan="2" className="py-4 px-6 text-center text-gray-400">
                   <div className="flex items-center justify-center space-x-4 m-16">
                     <img
-                      src="/transaction.jpg"
+                      src="/assets/images/transaction.jpg"
                       alt="No transactions"
                       className="h-16 w-16 sm:h-20 sm:w-20 rounded-full"
                     />

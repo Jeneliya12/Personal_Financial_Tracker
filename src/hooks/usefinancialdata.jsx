@@ -61,6 +61,7 @@ export function useFinancialData() {
   transactions.sort((a, b) => b.amount - a.amount);
 
   return {
+    budget,
     totalExpenses,
     totalIncome,
     balance,
@@ -68,5 +69,6 @@ export function useFinancialData() {
     savingsPercentage,
     transactions,
     warning,
+    savingsGoal,
   };
 }

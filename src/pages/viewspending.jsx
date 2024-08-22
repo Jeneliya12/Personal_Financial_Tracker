@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/header";
-import Navbar from "../components/navbar";
+import Header from "../components/header/header";
+import Navbar from "../components/header/navbar";
 import { useExpenses } from "../context/expensecontext";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from "chart.js";
@@ -10,7 +10,6 @@ ChartJS.register(Title, Tooltip, Legend, ArcElement);
 function ViewSpending() {
   const { expenses } = useExpenses();
 
-  // Calculate spending by category
   const categoryTotals = expenses.reduce((totals, expense) => {
     if (!totals[expense.category]) {
       totals[expense.category] = 0;
@@ -19,7 +18,6 @@ function ViewSpending() {
     return totals;
   }, {});
 
-  // Prepare data for the pie chart
   const chartData = {
     labels: Object.keys(categoryTotals),
     datasets: [

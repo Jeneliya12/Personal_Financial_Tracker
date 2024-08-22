@@ -1,6 +1,5 @@
 import React, { Suspense, lazy } from "react";
 
-// Create a higher-order component to delay the rendering of the actual component
 const DelayedSuspense = ({ delay = 1000, fallback, children }) => {
   const [isLoaded, setIsLoaded] = React.useState(false);
 

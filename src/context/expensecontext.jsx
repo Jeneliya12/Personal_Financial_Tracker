@@ -6,7 +6,7 @@ export const ExpenseProvider = ({ children }) => {
   const [expenses, setExpenses] = useState([]);
 
   const addExpense = (expense) => {
-    console.log("Adding expense:", expense); // Debugging
+    console.log("Adding expense:", expense);
     setExpenses((prevExpenses) => [...prevExpenses, expense]);
   };
 

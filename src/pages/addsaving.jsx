@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/header";
-import Navbar from "../components/navbar";
+import Header from "../components/header/header";
+import Navbar from "../components/header/navbar";
 import { useSavings } from "../context/savingscontext";
 
 function AddSaving() {
@@ -19,7 +19,7 @@ function AddSaving() {
       updateSavingsGoal(savingsGoalData);
       console.log("Savings goal updated successfully.");
       handleReset();
-      navigate("/"); // Redirect to the Dashboard ("/" route)
+      navigate("/");
     } catch (error) {
       console.error("Error updating savings goal:", error);
     }
