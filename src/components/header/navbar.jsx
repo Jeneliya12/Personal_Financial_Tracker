@@ -9,7 +9,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-gray-800 border-r border-gray-600 p-4 fixed top-0 left-0 h-full z-50 transition-all duration-300 md:w-64 md:relative md:h-auto md:flex md:flex-col">
+    <nav className="bg-gray-900 border-r border-gray-600 p-4 fixed top-0 left-0 h-full z-50 transition-all duration-300 md:w-64 md:relative md:h-auto md:flex md:flex-col">
       <button
         className="md:hidden text-white mb-4"
         onClick={handleToggle}
