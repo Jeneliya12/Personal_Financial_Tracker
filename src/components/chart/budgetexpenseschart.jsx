@@ -21,7 +21,7 @@ ChartJS.register(
 
 const BudgetExpensesChart = ({ budget, totalExpenses, savings }) => {
   const data = {
-    labels: ["Budget", "Expenses", "Savings"],
+    labels: ["Income", "Expenses", "Savings"],
     datasets: [
       {
         label: "Amount",
@@ -85,7 +85,7 @@ const BudgetExpensesChart = ({ budget, totalExpenses, savings }) => {
   return (
     <div className="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg w-full max-w-full h-auto">
       <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-semibold mb-4 text-white text-center">
-        Budget vs Expenses vs Savings
+        Income vs Expenses vs Savings
       </h2>
       <div className="relative w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px]">
         <Bar data={data} options={options} />

@@ -3,11 +3,22 @@ const DashboardSummary = ({
   getDisplayValue,
   totalExpenses,
   savings,
-  savingsPercentage,
-  warning,
   savingsGoal = 0,
-  LOW_SAVINGS_THRESHOLD = 100,
 }) => {
+  // Calculate remaining balance after expenses
+  const remainingBalance = balance - totalExpenses;
+
+  // Determine if a savings goal is set
+  const isSavingsGoalSet = savingsGoal > 0;
+
+  // Determine message conditions only if a savings goal is set
+  const remainingBalanceEqualsGoal =
+    isSavingsGoalSet && remainingBalance === savingsGoal;
+  const remainingBalanceExceedsGoal =
+    isSavingsGoalSet && remainingBalance > savingsGoal;
+  const remainingBalanceLessThanGoal =
+    isSavingsGoalSet && remainingBalance < savingsGoal;
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
       <div className="bg-gray-800 p-4 sm:p-6 md:p-8 rounded-lg flex flex-col items-center h-64">
@@ -17,7 +28,7 @@ const DashboardSummary = ({
             alt="Income/Budget"
             className="h-16 w-16 sm:h-20 sm:w-20 rounded-lg mr-2"
           />
-          Income/Budget
+          Income
         </h2>
         <h2 className="text-lg sm:text-xl md:text-2xl text-gray-400">
           ${getDisplayValue().toLocaleString()}
@@ -43,26 +54,26 @@ const DashboardSummary = ({
             alt="Savings"
             className="h-16 w-16 sm:h-20 sm:w-20 rounded-lg mr-2"
           />
-          Savings
+          Savings Goal
         </h2>
-        <h2
-          className={`text-lg sm:text-xl md:text-2xl ${
-            savings < LOW_SAVINGS_THRESHOLD && savingsGoal > 0
-              ? "text-red-500"
-              : "text-gray-400"
-          }`}
-        >
-          ${savingsGoal.toLocaleString()} - ${totalExpenses.toLocaleString()} =
-          ${savings.toLocaleString()}
+        <h2 className="text-lg sm:text-xl md:text-2xl text-gray-400">
+          ${savingsGoal.toLocaleString()}
         </h2>
-        <div className="mt-4 w-full bg-gray-700 rounded">
-          <div
-            className="bg-green-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-l"
-            style={{ width: `${savingsPercentage}%` }}
-          >
-            {savingsPercentage.toFixed(2)}%
-          </div>
-        </div>
+        {isSavingsGoalSet && remainingBalanceExceedsGoal && (
+          <p className="mt-4 text-green-400 text-lg font-semibold">
+            🎉 Congratulations! You've exceeded your savings goal!
+          </p>
+        )}
+        {isSavingsGoalSet && remainingBalanceEqualsGoal && (
+          <p className="mt-4 text-green-400 text-lg font-semibold">
+            🎉 Congratulations! You've met your savings goal!
+          </p>
+        )}
+        {isSavingsGoalSet && remainingBalanceLessThanGoal && (
+          <p className="mt-4 text-red-500 text-lg font-semibold">
+            ⚠️ Warning: You've not met your saving goals.
+          </p>
+        )}
       </div>
     </div>
   );

@@ -50,19 +50,19 @@ function Navbar() {
           {[
             { to: "/", imgSrc: "/assets/images/home.png", text: "Home" },
             {
+              to: "/update-budget",
+              imgSrc: "/assets/images/income.jpg",
+              text: "Add / Update Your Income",
+            },
+            {
               to: "/add-expense",
               imgSrc: "/assets/images/expense.jpg",
               text: "Add an Expense",
             },
             {
-              to: "/update-budget",
-              imgSrc: "/assets/images/income.jpg",
-              text: "Add / Update Your Budget",
-            },
-            {
               to: "/add-saving",
               imgSrc: "/assets/images/saving.jpg",
-              text: "Add Savings",
+              text: "Add Saving Goals",
             },
             {
               to: "/view-spending",
